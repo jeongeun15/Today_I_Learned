@@ -1,0 +1,194 @@
+
+https://www.notion.so/hphk/2-Git-4280dd8ca1c14df28a4cb493beae0fc3
+
+
+명령어
+start . / open .
+
+1. date = 시간 알려준다
+2. ~ : 루트, 홈 디렉토리
+3. ls (list segments) : 현재 디렉토리 내의
+폴더 & 파일을 보여줌
+-> ls -a : all 숨김 폴더 & 파일까지
+4. ctrl + l => 스크롤 내리기
+5. clear
+6. 배쉬창 화살표 키 => 최근 기입확인
+7. ctrl a, e => 앞뒤 이동
+------------------------------------
+경로 -> 
+상대경로 = 내 위치 기준
+절대경로 = 어디든 상관없는 위치
+
+8. touch a.txt => '파일' 을 만드는 경우
+9. mkdir (make directory) => '폴더' 만들기
+10. cd (change directory) =>
+
+. vs ..  ->  
+. => 현재 위치!
+.. => 현재 위치에서 상대 경로로 상위
+
+11. mv => 이동 + 이름바꾸기
+12. rm => remove
+파일삭제 : rm a.txt
+폴더삭제 : rm -r test
+
+* => asterisk , wildcard 
+=> all
+rm *.txt
+
+rm -r , rm -rf
+rm -rf
+
+-------------------------------------------------------------------------------------
+Typora 
+
+1. # -> 문서의 논리적 흐름
+대제목, 소제목
+주의: 글씨 크기를 키우기 
+위해 사용 x
+
+2. 인용문 : > 꺽쇠
+3. 리스트 : * or -
+tab 으로 안으로 간다
+shift tab 으로 밖으로 나온다
+
+4. 이미지 : ![]()
+5. 링크 : []()
+[보여질 제목](실제링크)
+
+------------------------------------------------------------------------------------
+깃 명령어 정리
+1. git init
+=> 현재 폴더를 깃이 
+관리하는 폴더로 만들어줘!
+홈폴더에서 기입하지 X
+딱 최초 1번만 기입!
+내가 관리하고 싶은 최상의 폴더 하나에만 기입
+
+2. git status
+=> 현 상황을 보고싶어!
+
+
+3. git add a.txt
+git add . (전부다 올리기)
+
+4. git commit -m "메시지"
+=> 찰칵! 후 저장소
+
+5. git log 
+=> 버전들 확인할래!
+
+## tell me who you are이라고 나오면 
+git config --global user.name "본인 깃허브 아이디"
+git config --global user.email "이메일"
+
+git config --global --list 이걸로 확인할 수 있다.
+
+## 다시 유저 이름이랑 수정하고 싶을 때
+git log
+git log --oneline
+git config --global --unset user.name
+git config --global --unset user.email
+
+
+git log --oneline 치면 앞에 노란색으로 나오는게 해쉬값이다.
+6. 돌아가보기 :
+git checkout 해쉬값
+git checkout head~3
+다시 나오기 :
+git checkout master
+
+
+홈에서 하면 안된다!
+git init -> git add . -> git commit -m'메세지' -> git remote add origin 주소
+ -> git remote -v -> git push origin master 
+
+7. 브릿지 잇기 !
+git remote add origin 주소
+
+이어진거 확인
+git remote -v
+
+8. 올리기!
+git push origin master
+
+
+#특정 파일과 폴더를 올리기 싫을 때. 
+touch .gitignore
+gitignore에 올리기 싫은 b.txt를 입력하고 git init을 입력하면 b.txt에만 U가 생성되지 않는다. 
+add하기 전에 올리기 싫은 파일을 저장해놔야됨. 
+
+# git clone 
+복제할때 폴더째로 복제해 오기 때문에 그 장소로 복제한 폴더를 가져옴. 얘는 홈폴더에서 해도 됨
+복제된 폴더 자체를 이 장소로 가져와죠!
+
+##
+touch a.txt 만들고 a가 먼저 시작함. 하고 add -> commit -> log --oneline 입력
+커밋한 상태에서 git push origin 입력. 깃허브에 올라가 있음. 
+그다음 B가 pull로 당김
+git pull origin master이라고 입력하면 다라락 다 뜬다. git add -> commit -> git log --oneline 입력
+
+-------------------------------------------------------------------------------------
+
+1. mkdir => 폴더 만듦
+2. touch a.txt -> 파일
+3. git init -> 관리시작!
+4. ls -a : 숨김 보기
+5. git status : 현황!
+6. git add . => 무대로!
+7. git commit -m '내용'
+=> 버전 찰칵!
+8. git log --oneline
+=> 커밋 로그 확인
+9. git remote add origin
+=> 주소 연결
+10. git remote -v
+=> 주소 확인
+11. git push origin master
+=> 커밋 사항 올리기
+
+12. bash 에서 git clone 주소를 통해 폴더 복제
+=> 그공간에 폴더 복제
+그다음 vs코드로 열기
+
+#상대방이 한 다음
+13. git pull origin master
+=> 내려받기
+
+
+
+#무대로 올렸다가 다시 내리고 싶으면 
+git rm --cached 파일이름 
+
+#실수로 깃허브에서 수정을 하고 vs code에서 다시 수정하고 add 하고 commit하고 push 했을 때 오류가 뜨게 된다. 
+해결방안
+ git pull origin master -> 지우고 싶은거 지우고 저장 -> git add . 
+-> git commit -m '메세지' -> git push origin master
+ 
+1. git branch -> 확인용(branch에 뭐가 있는지를 알고 싶을 때 입력)
+git branch + 이름 
+=> branch가 생성됨
+
+2. 다른 branch로 이동하고 싶을 때
+-> git switch 브랜치명
+
+3. git merge + 합치고 싶은 branch 이름
+-> 위치는 마스터에서
+-> 마스터랑 합치고 싶은 branch가 합쳐지게 됨
+
+git log --oneline --graph
+-> 확인
+
+4. git branch -d water
+-> 없애고 싶은 branch 삭제
+
+5. commit 메세지를 잘 못 입력 했을 때 
+git commit --amend 입력 -> i 입력 -> 원하는 메세지로 수정 -> esc 입력 -> :wq입력 -> enter
+
+6. 새로운 branch를 만들면서 바로 이동하는 방법
+git switch -c 새로운branch이름
+
+7. git merge 브랜치이름 했는데 충돌이 일어났을 경우
+원하는 내용으로 수정하고 -> 저장하고 -> git add .-> git commit -m '메세지'
+
+end가 나오면 q누르면 된다
