@@ -137,3 +137,78 @@
   -  복제된 폴더 자체를 이 장소로 가져와죠!
 
   - 복제할때 폴더째로 복제해 오기 때문에 그 장소로 복제한 폴더를 가져온다. 홈폴더에서 해도 된다.
+
+* 깃허브에서 수정된 파일을 내려받고 싶다면 
+
+  `git pull origin master` 
+
+* 무대에 올렸다가 다시 내리고 싶으면 
+
+  `git rm --cached 파일이름`
+
+* Q) 실수로 깃허브에서 수정을 하고, vs code에서 다시 수정하고 add , commit, push 했을 때 오류가 뜨게 된다. 
+
+  A) `git pull origin master`
+
+  ->` 지우고 싶은거 지우고 저장(ctrl + s)` -> `git add . `
+  -> `git commit -m '메세지' `->` git push origin master`
+
+### <span style="color:#F8B2DF">Branch</span>
+
+* `git branch + 브랜치 이름 `
+
+  branch가 생성됨
+
+* `git branch` 
+
+  확인용 (branch에 뭐가 있는지를 알고 싶을 때 입력)
+
+* `git switch 브랜치명`
+
+  다른 branch로 이동
+
+* `git switch -c 새로운branch이름`
+
+  새로운 브랜치를 만들면서 바로 그 브랜치로 이동하게 됨
+
+* `git merge + 합치고 싶은 branch 이름`
+
+  마스터 브랜치랑 합치고 싶은 브랜치랑 합쳐지게 됨.
+
+  위치는 마스터에서 입력하기!
+
+* `git log --oneline --graph`
+
+  확인
+
+* `git branch -d water`
+
+  없애고 싶은 브랜치 삭제
+
+* Q) commit 메세지를 잘 못 입력 했을 때 
+
+  A) `git commit --amend` 입력 -> `i` 입력 
+
+  -> `원하는 메세지`로 수정 -> `esc` 입력 ->` :wq`입력 -> `enter`
+
+* Q) `git merge 브랜치 이름` 입력 했는데 충돌이 일어났을 경우
+
+  A) `원하는 내용`으로 수정 -> `저장`(ctrl +s) 
+
+  ->` git add .`-> 	 `git commit -m '메세지'`
+
+* git commit 하다가 이전 commit 으로 돌아가고 싶을 때
+
+  (삭제 했던 commit 복구할 때도 사용한다. )
+
+  `git reset --soft 해쉬값` 
+
+  `git reset --soft HEAD~N`  -> N번째 뒤 커밋까지 가주세요
+
+  - 터미널에서 해쉬값은 사라지지만 위에 내용은 사라지지 않는다.
+
+  `git reset --hard 해쉬값`
+
+  - 터미널에서 해쉬값은 사라지고 위에 내용도 사라진다. 
+
+  - 변경사항을 모두 제가. 위험하다!
